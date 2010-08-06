@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script type="text/javascript" src="cake.js"></script>
+<script language="javascript">
+
+window.onload = function() {
+    var cena = new Canvas(document.body, 600, 400, {fill:'cyan'});
+        
+	var bola = new Circle(30, {id: 'bola', x: 0,  y: 0, fill: 'red'});
+	
+	var speedx = 7;
+    var speedy = 7;
+	
+	bola.verificaDirecao = function() {
+		if (this.x > 600)
+		    speedx = speedx * -1;
+		if (this.y > 400)
+		    speedy = speedy * -1;
+		if (this.x < 0)
+		    speedx = speedx * -1;
+		if (this.y < 0)
+		    speedy = speedy * -1;
+	}
+	
+	bola.addFrameListener(function(t, dt) {
+			this.x += speedx;
+			this.y += speedy;
+			
+            this.verificaDirecao();
+    });
+    
+    cena.append(bola);
+};
+
+
+</script>
+</head>
+<body>
+</body>
+</html>
