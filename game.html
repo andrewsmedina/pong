@@ -30,6 +30,20 @@ window.onload = function() {
             this.verificaDirecao();
     });
     
+    var barra_esquerda = new Rectangle(20, 100);
+    barra_esquerda.x = 20;
+    barra_esquerda.y = 250;
+    barra_esquerda.fill = 'green';
+
+    var barra_direita = new Rectangle(20, 100);
+    barra_direita.x = 420;
+    barra_direita.y = 250;
+    barra_direita.fill = 'green';
+    
+    
+    cena.append(barra_esquerda);
+    cena.append(barra_direita);
+    
     cena.append(bola);
 };
 
