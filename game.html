@@ -38,7 +38,7 @@ window.onload = function() {
     barra_esquerda.fill = 'green';
 
     var barra_direita = new Rectangle(20, 100);
-    barra_direita.x = 420;
+    barra_direita.x = 560;
     barra_direita.y = 250;
     barra_direita.fill = 'green';
     
@@ -47,6 +47,22 @@ window.onload = function() {
     cena.append(barra_direita);
     
     cena.append(bola);
+    
+    
+    document.onkeydown = function(e) {
+        console.log(e.keyCode)
+        
+        if (e.keyCode === 40) {
+            barra_esquerda.y += 10;
+            barra_direita.y += 10;
+        }
+        
+        if (e.keyCode == 38) {
+            barra_esquerda.y -= 10;
+            barra_direita.y -= 10;
+        }
+        
+    }
 };
 
 
