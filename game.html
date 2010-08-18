@@ -8,9 +8,11 @@
 
 window.onload = function() {
     var cena = new Canvas(document.body, 600, 400, {fill:'cyan'});
-        
 	var bola = new Circle(30, {id: 'bola', x: 0,  y: 0, fill: 'red'});
 	
+    var barra_esquerda = new Rectangle(20, 100, {x: 20, y: 250, fill: 'green'});
+    var barra_direita = new Rectangle(20, 100, {x: 560, y: 250, fill: 'green'});
+
 	var speedx = 7;
     var speedy = 7;
 	
@@ -32,37 +34,25 @@ window.onload = function() {
             this.verificaDirecao();
     });
     
-    var barra_esquerda = new Rectangle(20, 100);
-    barra_esquerda.x = 20;
-    barra_esquerda.y = 250;
-    barra_esquerda.fill = 'green';
-
-    var barra_direita = new Rectangle(20, 100);
-    barra_direita.x = 560;
-    barra_direita.y = 250;
-    barra_direita.fill = 'green';
-    
+    document.onkeydown = function(e) {
+        console.log(e.keyCode)
+        
+        if (e.keyCode === 40) {
+            barra_esquerda.y += 16;
+            barra_direita.y += 16;
+        }
+        
+        if (e.keyCode == 38) {
+            barra_esquerda.y -= 16;
+            barra_direita.y -= 16;
+        } 
+    }
     
     cena.append(barra_esquerda);
     cena.append(barra_direita);
     
     cena.append(bola);
-    
-    
-    document.onkeydown = function(e) {
-        console.log(e.keyCode)
-        
-        if (e.keyCode === 40) {
-            barra_esquerda.y += 10;
-            barra_direita.y += 10;
-        }
-        
-        if (e.keyCode == 38) {
-            barra_esquerda.y -= 10;
-            barra_direita.y -= 10;
-        }
-        
-    }
+
 };
 
 
